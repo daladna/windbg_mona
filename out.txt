@@ -1,0 +1,238 @@
+0:000> !py mona rop -m ntdll
+*******************************************************************************************
+ You are running a newer version of pykd.pyd
+ mona.py was tested against v0.2.0.29
+ and not against v0.3.2.4
+ This version may not work properly.
+ If you are having issues, I recommend to download the correct version from
+   https://github.com/corelan/windbglib/raw/master/pykd/pykd.zip
+   (unzip with 7zip)
+
+ NOTE: PyKD v0.3.2.4 requires msdia120.dll, which only gets installed via Visual Studio 2013 (yup, I know)
+ Alternatively, you can use the copy of msdia120.dll from the pykd.pyd file
+  (https://github.com/corelan/windbglib/raw/master/pykd/pykd03.zip), but use this file at your own risk
+*******************************************************************************************
+Hold on...
+[+] Command used:
+!py C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py rop -m ntdll
+
+---------- Mona command started on 2017-04-23 00:44:20 (v2.0, rev 570) ----------
+[+] Processing arguments and criteria
+    - Pointer access level : X
+    - Only querying modules ntdll
+[+] Generating module info table, hang on...
+    - Processing modules
+    - Done. Let's rock 'n roll.
+[+] Preparing output file '_rop_progress_iexplore.exe_5824.log'
+    - Creating working folder C:\logs\iexplore
+    - Folder created
+    - (Re)setting logfile C:\logs\iexplore\_rop_progress_iexplore.exe_5824.log
+[+] Progress will be written to _rop_progress_iexplore.exe_5824.log
+[+] Maximum offset : 40
+[+] (Minimum/optional maximum) stackpivot distance : 8
+[+] Max nr of instructions : 6
+[+] Split output into module rop files ? False
+[+] Enumerating 22 endings in 1 module(s)...
+    - Querying module ntdll.dll
+    - Search complete :
+       Ending : RETN 0x02, Nr found : 6
+       Ending : RETN 0x0C, Nr found : 590
+       Ending : RETN 0x1C, Nr found : 55
+       Ending : RETN 0x0A, Nr found : 1
+       Ending : RETN, Nr found : 3246
+       Ending : RETN 0x20, Nr found : 40
+       Ending : RETN 0x18, Nr found : 141
+       Ending : RETN 0x08, Nr found : 703
+       Ending : RETN 0x24, Nr found : 26
+       Ending : RETN 0x28, Nr found : 20
+       Ending : RETN 0x10, Nr found : 370
+       Ending : RETN 0x00, Nr found : 46
+       Ending : RETN 0x14, Nr found : 254
+       Ending : RETN 0x04, Nr found : 723
+    - Filtering and mutating 6221 gadgets
+      - Progress update : 1000 / 6221 items processed (Sun 2017/04/23 12:44:52 AM) - (16%)
+      - Progress update : 2000 / 6221 items processed (Sun 2017/04/23 12:45:23 AM) - (32%)
+      - Progress update : 3000 / 6221 items processed (Sun 2017/04/23 12:45:52 AM) - (48%)
+      - Progress update : 4000 / 6221 items processed (Sun 2017/04/23 12:46:19 AM) - (64%)
+      - Progress update : 5000 / 6221 items processed (Sun 2017/04/23 12:46:41 AM) - (80%)
+      - Progress update : 6000 / 6221 items processed (Sun 2017/04/23 12:47:05 AM) - (96%)
+      - Progress update : 6221 / 6221 items processed (Sun 2017/04/23 12:47:10 AM) - (100%)
+[+] Creating suggestions list
+[+] Processing suggestions
+[+] Launching ROP generator
+[+] Attempting to produce rop chain for VirtualProtect
+    Step 1/7: esi
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2793, in getIAT
+    thisfuncfullname = thisfunc.getName().lower()
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\windbglib.py", line 1772, in getName
+    syms = thismod.getSymbols()
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\windbglib.py", line 1527, in getSymbols
+    iatlist = self.getIATList(ntHeader,pSize)
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\windbglib.py", line 1553, in getIATList
+    iatEntry = pykd.ptrPtr(iatAddr + i*pSize)
+MemoryException: Memory exception at 0x75a71638 target virtual address
+
+** Error trying to process module msvcrt.dll
+** Error trying to process module msvcrt.dll
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module CRYPTBASE.dll
+** Error trying to process module CRYPTBASE.dll
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module advapi32.DLL
+** Error trying to process module advapi32.DLL
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module ntdll.dll
+** Error trying to process module ntdll.dll
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module sechost.dll
+** Error trying to process module sechost.dll
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module LPK.dll
+** Error trying to process module LPK.dll
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module api-ms-win-downlevel-advapi32-l1-1-0.dll
+** Error trying to process module api-ms-win-downlevel-advapi32-l1-1-0.dll
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module iertutil.dll
+** Error trying to process module iertutil.dll
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module USP10.dll
+** Error trying to process module USP10.dll
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module SspiCli.dll
+** Error trying to process module SspiCli.dll
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module api-ms-win-downlevel-version-l1-1-0.dll
+** Error trying to process module api-ms-win-downlevel-version-l1-1-0.dll
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module RPCRT4.dll
+** Error trying to process module RPCRT4.dll
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module user32.DLL
+** Error trying to process module user32.DLL
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module KERNELBASE.dll
+** Error trying to process module KERNELBASE.dll
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module api-ms-win-downlevel-user32-l1-1-0.dll
+** Error trying to process module api-ms-win-downlevel-user32-l1-1-0.dll
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module GDI32.dll
+** Error trying to process module GDI32.dll
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module iexplore.exe
+** Error trying to process module iexplore.exe
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module version.DLL
+** Error trying to process module version.DLL
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module api-ms-win-downlevel-shlwapi-l1-1-0.dll
+** Error trying to process module api-ms-win-downlevel-shlwapi-l1-1-0.dll
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module shlwapi.DLL
+** Error trying to process module shlwapi.DLL
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+** Error trying to process module normaliz.DLL
+** Error trying to process module normaliz.DLL
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 2757, in getIAT
+    syms = themod.getSymbols()
+AttributeError: 'NoneType' object has no attribute 'getSymbols'
+
+Invalid instruction - could not assemble jmp [eax]
+********************************************************************************
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 18207, in main
+    commands[command].parseProc(opts)
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 11365, in procROP
+    findROPGADGETS(modulecriteria,criteria,endings,maxoffset,depth,split,thedistance,fast,mode)
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 6304, in findROPGADGETS
+    vplogtxt = createRopChains(suggestions,interestinggadgets,ropgadgets,modulecriteria,criteria,objprogressfile,progressfile)
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 8182, in createRopChains
+    thischain[thisreg],skiplist = getPickupGadget(thisreg,funcptr,functext,suggestions,interestinggadgets,criteria,modulecriteria,routine)
+  File "C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\mona.py", line 8915, in getPickupGadget
+    if len(allpointers) > 0:
+TypeError: object of type 'NoneType' has no len()
+
+********************************************************************************
